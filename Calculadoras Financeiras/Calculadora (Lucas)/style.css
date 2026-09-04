@@ -1,0 +1,76 @@
+.painel {
+    width: 50%;
+    display: flex;
+    background-color: lightblue;
+    border: solid 2px darkblue;
+    padding: 20px;
+    flex-direction: column;
+    border-radius: 10px;
+    text-align: center;
+}
+
+body{
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url(grama.jpg);
+}
+
+button{
+    align-self: center;
+    width: 50%;
+    background-color: white;
+    border-radius: 3px;
+    padding: 10px;
+    font-size: large;
+    font-weight: bold;
+    box-shadow: chartreuse;
+    border: none;
+}
+
+button:hover{
+    background-color: darkblue;
+    color: white;
+    box-shadow: 0 8px 10px 0 rgba(0,0,0,0.6);
+}
+
+button:active{
+    transform: translateY(4px);
+    box-shadow: 0 8px 10px 0 rgba(67, 67, 67, 0.6);
+    background-color: rgb(0, 0, 212);
+}
+
+.row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.text {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: x-large;
+}
+
+.resposta{
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+}
+
+b{
+    color: red;
+}
+
+h1{
+    align-self: center;
+    text-align: center;
+}
+
+input{
+    width: 80px;
+    height: 20px;
+    font-size: large;
+}
