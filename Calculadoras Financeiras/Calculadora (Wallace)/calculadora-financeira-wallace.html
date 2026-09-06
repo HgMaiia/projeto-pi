@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador Financeiro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class='entradas'>
+        <div class='cabecalho'>
+            <h1>Simulador Financeiro</h1>
+            <h2>Ganhos e Perdas na produção de mel</h2>
+        </div>
+        Insira o valor do Kg do mel: <input id='valorMel'><br><br>
+        Insira a quantidade total de mel produzido no último mês (em Kg): <input id='totalMel'><br><br>
+        Insira quantas colmeias você possui: <input id='totalColmeias'><br><br>
+
+        <button onclick='calcularMel()'>Calcular produção de Mel</button>
+    </div>
+
+    <div id='texto' class='resultados'></div>
+</body>
+<script>
+
+    let perdaAcumulada = 0
+    let rendaBruta = 0
+
+    // Função principal: calcular média de mel por colmeia, quantas colmeias disponíveis, o preço do quilo, a renda total e perdas por enxameação.
+    function calcularMel() {
+        let precoKg = Number(valorMel.value)
+        let melProduzido = Number(totalMel.value)
+        let Colmeias = Number(totalColmeias.value)
+        let mediaMel = (melProduzido / Colmeias)
+        let rendaColmeia = (mediaMel * precoKg)
+        let rendaTotal = (rendaColmeia * Colmeias)
+        let reducaoEnx = (rendaTotal / 2)
+
+        // IfElse para evitar números negativos, nulos, ou divisões por infinito.
+        if (valorMel.value.length == 0) {
+            alert('Não foi inserido entrada para o valor do mel. Insira novamente.')
+        } else if (totalMel.value.length == 0) {
+            alert('Não foi inserido entrada para o total de mel. Insira novamente.')
+        } else if (totalColmeias.value.length == 0) {
+            alert('Não foi inserido entrada para o total de colmeias. Insira novamente.')
+        } else if (precoKg <= 0) {
+            alert('Valor inválido para o Kg do mel. Insira novamente.')
+        } else if (Colmeias <= 0) {
+            alert('Valor inválido para a quantidade de colmeias. Insira novamente.')
+        } else if (melProduzido < 0) {
+            alert('Valor inválido para a quantidade de mel produzido. Insira novamente.')
+        } else {
+
+
+            // Calculando as variáveis globais só depois da verificação de que nenhuma entrada foi errada.
+            perdaAcumulada = perdaAcumulada - reducaoEnx
+            rendaBruta = rendaBruta + rendaTotal
+
+            // Zerando campos de entrada em caso de execução correta.
+            valorMel.value = '';
+            totalMel.value = '';
+            totalColmeias.value = '';
+
+            // Mensagem final.
+            texto.innerHTML = `Com os valores inseridos, temos:<br><br>
+    A média de mel produzido por colmeia (em quilograma): ${mediaMel.toFixed(2)}Kg<br><br>
+    
+    Em caso de enxameação, a sua perda será de, aproximadamente, <b>50%</b> da produção total. Assim, a perda financeira será de: <b>R$${reducaoEnx.toFixed(2)}</b>.<br><br>
+    
+    Perda acumulada: <b>R$${perdaAcumulada}</b><br>
+    Renda Bruta: R$${rendaBruta}`
+
+        }
+    }
+
+</script>
+
+</html>
