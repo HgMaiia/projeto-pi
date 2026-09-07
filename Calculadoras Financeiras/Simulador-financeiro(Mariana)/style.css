@@ -1,0 +1,81 @@
+.planodefundo{
+    min-height: 100vh;
+    padding-bottom: 40px;
+    background-color: #fff2d0;
+}
+.cabecalho{
+    font-family: Arial, sans-serif;
+    background-color: #ed9b00;
+    padding: 35px;
+    color:  #542800;
+    text-align: start;
+}
+
+.cabecalho h1{
+    margin-top: 0;
+    font-size: 38px;
+
+}
+
+.cabecalho p {
+    margin-bottom: 0;
+    font-size: 18px;
+}
+
+.corpo {
+    width: 650px;
+    margin: 40px auto;
+    padding: 35px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px #d3c3a4;
+    color: #3d2b1f;
+    font-size: 18px;
+    text-align: center;
+}
+
+.corpo input {
+    width: 170px;
+    padding: 8px;
+    border: 1px solid #b9a98d;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.corpo input:focus {
+    border-color: #ed9b00;
+    outline: none;
+}
+
+.corpo button {
+    padding: 11px 28px;
+    background-color: #ed9b00;
+    color: #542800;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.corpo button:hover {
+    background-color: #d88d00;
+}
+
+/* Resultado do cálculo */
+
+#div_exibir {
+    margin-top: 25px;
+    padding: 18px;
+    background-color: #fff1c4;
+    border-left: 5px solid #ed9b00;
+    border-radius: 6px;
+    color: #542800;
+    line-height: 1.7;
+    text-align: left;
+}
+
+/* Esconde a caixa enquanto não houver resultado */
+
+#div_exibir:empty {
+    display: none;
+}

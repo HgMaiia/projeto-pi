@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sprint 1</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="planodefundo">
+
+    <div class="cabecalho">
+    <h1>Simulador Financeiro</h1>
+    <p>
+        Simule o impacto financeiro de uma possível enxameação e veja
+         como o monitoramento contínuo pode apoiar a proteção da sua produção.  
+    </p>
+    </div>
+
+        <div class="corpo">
+            Quantidade (média) de mel em kg por colmeia: <input type="number" id="ipt_kg"> <br> <br>
+            Quantidade de colmeias: <input type="number" id="ipt_colmeias"> <br> <br>
+            Valor por kg de mel: <input type="number" id="ipt_valor"> <br> <br> 
+    
+            <button onclick="simular()">Simular perda</button>
+
+    <div id="div_exibir"></div>
+</div>
+</div>
+
+</body>
+<script>
+    function simular() {
+        let ax_erro = false;
+        let msg = `Por favor, preencher todos os campos`;
+        let mel = Number(ipt_kg.value);
+        let qtdColmeias = Number(ipt_colmeias.value);
+        let valor = Number(ipt_valor.value);
+        
+        // chegar os input
+
+        if(ipt_kg.value.length == 0) {
+            alert (msg);
+            ax_erro = true;
+        }
+
+        if (ipt_colmeias.value.length == 0){
+            alert (msg);
+            ax_erro = true;
+        } 
+
+
+        if (ipt_valor.value.length == 0) {
+            alert (msg);
+            ax_erro= true;
+
+        } if (ax_erro == false){
+    
+        // Calculo do total produzido
+
+        let totalProducao = Number(mel * qtdColmeias) * valor;
+       
+        // porcentagem de perda
+
+        let porcentagem = totalProducao * 0.3;
+        let Maxporcentagem = totalProducao * 0.7;
+
+         div_exibir.innerHTML = `Sua produção total foi de R$ ${totalProducao.toFixed(2)} <br>
+        No processo de enxameação sua perda minima estimada em 30% é de R$ ${porcentagem.toFixed(2)} <br>
+        e a maxima estimada em 70% é de R$ ${Maxporcentagem.toFixed(2)}`
+    }
+    }
+</script>
+
+</html>
