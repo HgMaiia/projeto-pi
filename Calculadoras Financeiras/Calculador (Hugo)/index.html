@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de impacto financeiro da colmeia</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Analise agora sua produção!</h1><br>
+    Quantas colmeias você possui? <input id="inp_colmeia"><br>
+    Produção média por colmeia(Kg/ano) <input id="inp_prodmedia"><br>
+    Preço de venda do mel (R$/Kg) <input type="text" id="inp_venda"><br>
+    Colmeias perdidas <input type="text" id="inp_perda"><br>
+    <button onclick="simular()">Fazer Simulação</button>
+    <div id="divx"></div>
+</body>
+</html>
+
+<script>
+    function simular() {
+        let erro = false;
+        let colmeia = Number(inp_colmeia.value);
+        let producao = Number(inp_prodmedia.value);
+        let mel = Number(inp_venda.value);
+        let perdida = Number(inp_perda.value);
+       
+
+        let producaototal = colmeia * producao;
+        let faturamento = producaototal * mel;
+        let percas = perdida * producao;
+        let totalperda = percas * mel
+
+        if (inp_colmeia.value.length == 0) {
+            alert(`a quantidade de colmeias está vazia, por favor entre com algum valor!`);
+            erro = true;
+        }
+        if (inp_prodmedia.value.length == 0) {
+            alert(`a produção média está vazia, por favor entre com algum valor!`);
+            erro = true;
+        }
+        if (inp_venda.value.length == 0) {
+            alert(`o preço de venda está vazio, por favor entre com algum valor!`);
+            erro = true;
+        }
+
+        if (erro == false) {
+            let texto = `Com ${colmeia} colmeias, sua produção total estimada é de ${producaototal.toFixed(2)} Kg/Ano, gerando um faturamento estimado de R$${faturamento.toFixed(2)}.<br>
+            `;
+            if (perdida > 0) {
+                texto += `Considerando a perda de ${perdida} colmeia(s), você deixaria de produzir ${percas.toFixed(2)}Kg, o que representa um prejuízo estimado de R$${totalperda.toFixed(2)}.`;
+            }
+            divx.innerHTML = texto;
+        }
+    }
+</script>
