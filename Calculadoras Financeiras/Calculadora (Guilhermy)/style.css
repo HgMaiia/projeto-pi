@@ -1,0 +1,37 @@
+body {
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url(https://wallpapers.com/images/hd/honeycomb-background-nc120rgcimgufqjb.png);
+}
+
+.principal {
+    width: 50%;
+    height: fit-content;
+    background-color: rgb(255, 251, 17);
+    border: solid 2px rgb(0, 0, 0);
+    border-radius: 25px;
+    margin: 20px;
+    padding: 40px;
+}
+
+.titulo {
+    text-align: center;
+    font-size: 40px;
+
+}
+
+.subtitulo {
+    text-align: center;
+    font-size: 30px;
+}
+
+.botao {
+    text-align: center;
+}
+
+.resultado {
+    text-align: center;
+    font-size: 20px;
+}

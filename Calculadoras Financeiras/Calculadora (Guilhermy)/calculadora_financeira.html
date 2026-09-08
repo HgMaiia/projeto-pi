@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Financeira</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="principal">
+        <div>
+            <h1 class="titulo">Calculadora financeira</h1>
+            <h3 class="subtitulo">Bem vindo a sua calculadora financeira, vamos simular</h3><br>
+        </div>
+        <div class="resultado">
+            Qual a quantidade media de mel produzida no mês(em kg): <br><input type="text" id="ipt_mel"> <br><br>
+            Quantidade de colmeias: <br><input type="text" id="ipt_colmeias"> <br><br>
+            Valor do quilo(Kg) do mel: <br><input type="text" id="ipt_valor"> <br><br>
+            <button class="botao" onclick="calcular()">Simular</button>
+        </div> <br>
+        <div id="div_exibir" class="resultado"></div>
+    </div>
+</body>
+<script>
+
+    function calcular() {
+        let mel = Number(ipt_mel.value)
+        let colmeias = Number(ipt_colmeias.value)
+        let preco = Number(ipt_valor.value)
+
+        let media_mel = mel / colmeias
+        let renda_colmeia = media_mel * preco
+        let renda_total = renda_colmeia * colmeias
+
+        let perda_kg = media_mel * 0.3
+        let perda_valor = perda_kg * preco
+        let perda_total_reais = renda_total * 0.3
+        let renda_final = renda_total - perda_total_reais
+
+        let mensagem = `<b>Resultado final:</b><br>
+        Média de mel produzida no mês por colmeia: <b style= "color:green;">${media_mel.toFixed(2)}kg</b> <br> 
+
+        Renda por colmeia: <b style= "color:green;">R$${renda_colmeia.toFixed(2)}</b> <br>
+        
+        Renda total: <b style= "color:green;">R$${renda_total.toFixed(2)}</b> <br> 
+    
+        Em caso de enxameação teria uma perda de <b style= "color:red;">${perda_kg.toFixed(2)}kg</b> de mel por colmeia, <br> 
+
+        em um valor de <b style= "color:red;">R$${perda_valor.toFixed(2)}</b> por colmeia, <br> 
+    
+        totalizando uma perda geral de <b style= "color:red;">R$${perda_total_reais.toFixed(2)}</b> 
+        
+        (Renda restante: <b>R$${renda_final.toFixed(2)}</b>)`
+
+        if (ipt_mel.value.length == 0) {
+            alert('Não foi inserido o total de mel. Insira novamente.')
+        }
+
+        else if (ipt_colmeias.value.length == 0) {
+            alert('Não foi inserido o total de colmeias. Insira novamente.')
+        }
+
+        else if (ipt_valor.value.length == 0) {
+            alert('Não foi inserido o valor do mel. Insira novamente.')
+        }
+
+        else if (mel <= 0) {
+            alert('Valor inválido para a quantidade de mel. Insira novamente.')
+        }
+
+        else if (colmeias <= 0) {
+            alert('Valor inválido para a quantidade de colmeias. Insira novamente.')
+        }
+
+        else if (preco <= 0) {
+            alert('Valor inválido para o quilo do mel. Insira novamente.')
+        }
+
+        else {
+            div_exibir.innerHTML = mensagem;
+        }
+    }
+</script>
+
+</html>
