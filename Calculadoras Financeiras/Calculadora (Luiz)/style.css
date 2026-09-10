@@ -1,0 +1,52 @@
+body {
+  margin: 0;
+  padding: 30px;
+  background-image: url("https://i.pinimg.com/736x/bf/95/13/bf9513805536cb20ceed48b2a96af6fa.jpg");
+  font-family: sans-serif;
+}
+
+
+.entradas {
+  text-align: center;
+  width: 50%;
+  margin: center;
+  margin-left: 300px;
+  background-color: yellow;
+  border: solid black;
+  border-radius: 25px;
+  padding: 40px;
+}
+
+
+.cabecalho {
+  text-align: center;
+  margin-bottom: 30px;
+  margin: 20px;
+}
+
+
+button {
+  background-color: black;
+  color: white;
+  padding: 15px;
+  border-radius: 30px;
+}
+
+
+.resultados {
+  margin: 20px auto;
+  background-color: white;
+  border: solid black;
+  border-radius: 25px;
+  padding: 50px;
+}
+
+.ganhos {
+    color: green;
+    font-weight: bold;
+}
+
+.perdas {
+    color: red;
+    font-weight: bold;
+}
