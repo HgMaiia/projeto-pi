@@ -7,8 +7,6 @@ Repositório organizado contendo três frentes de trabalho separadas em diretór
 
 ```
 .
-├── documentacao/
-│   └── (arquivos de documentação do projeto)
 ├── calculadoras Financeiras/
 │   ├── Hugo/
 │   ├── Gui/
@@ -28,9 +26,6 @@ Repositório organizado contendo três frentes de trabalho separadas em diretór
 ```
 
 ## Descrição dos diretórios
-
-### `documentacao/`
-Contém a documentação do projeto conforme solicitado e instruído pela disciplina de Tecnologia da Informação.
 ### `calculadoras/`
 Calculadoras financeiras individuais, desenvolvidas em **JavaScript**, conforme conhecimentos adquiridos em Algoritmos.
 
